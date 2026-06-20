@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #133624;
+  color: #f0f0f0;
+}
+
+/* Safe area for notched phones */
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Prevent text selection during game play */
+* {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: #374151;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f0c040;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Card animations */
+@keyframes cardDeal {
+  from { transform: scale(0.5) rotate(-8deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes chipIn {
+  from { transform: translateY(-12px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes winnerGlow {
+  0%   { box-shadow: 0 0 10px #f0c040; }
+  100% { box-shadow: 0 0 30px #f0c040, 0 0 60px #f0c04066; }
+}
+
+.animate-card-deal {
+  animation: cardDeal 0.3s ease-out;
+}
+
+.animate-chip-in {
+  animation: chipIn 0.4s ease-out;
+}
+
+.animate-winner-glow {
+  animation: winnerGlow 1s ease-in-out infinite alternate;
+}
