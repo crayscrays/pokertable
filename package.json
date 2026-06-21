@@ -10,6 +10,7 @@
     "dev:server": "npm run dev --workspace=apps/server",
     "dev:frontend": "npm run dev --workspace=apps/frontend",
     "build": "npm run build --workspace=apps/frontend && npm run build --workspace=apps/server",
+    "start": "node apps/server/dist/index.js",
     "typecheck": "npx tsc --project apps/server/tsconfig.json --noEmit && npx tsc --project apps/frontend/tsconfig.json"
   }
 }

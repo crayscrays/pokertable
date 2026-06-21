@@ -18,11 +18,17 @@ const DEMO_CONTEXT: BevoContext = {
   balances: { usdc: "100.00", eth: "0.01" },
 };
 
+function isDemoMode() {
+  return (
+    import.meta.env.DEV ||
+    new URLSearchParams(window.location.search).get("demo") === "true"
+  );
+}
+
 export function useBevoContext(): BevoContext | null {
   const [ctx, setCtx] = useState<BevoContext | null>(() => {
     if (window.BevoContext) return window.BevoContext;
-    // Fall back to demo context in development
-    if (import.meta.env.DEV) return DEMO_CONTEXT;
+    if (isDemoMode()) return DEMO_CONTEXT;
     return null;
   });
 

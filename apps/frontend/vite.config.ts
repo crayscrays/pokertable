@@ -9,7 +9,6 @@ export default defineConfig({
       "/api/poker": {
         target: "http://localhost:13001",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/poker/, ""),
       },
     },
   },
