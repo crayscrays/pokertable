@@ -23,7 +23,7 @@ app.use("/webhook", webhookRouter);
 // Serve frontend static files (production single-service deploy)
 const frontendDist = path.join(__dirname, "../../frontend/dist");
 app.use(express.static(frontendDist));
-app.get("*", (_req, res) => {
+app.use((_req, res) => {
   res.sendFile(path.join(frontendDist, "index.html"));
 });
 
